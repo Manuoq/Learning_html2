@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav><a href="../enlaces/index.html">Volver a enlaces</a>
+    <form action="/forms/Index.html" method="get">
+        <input type="text" name="nombre" placeholder="tu usuario de la aplicación">
+        <ul>
+            <li>
+                <label for="login">Usuario:</label>
+                <input type="text" placeholder="Usuario" id="login" name="Usuario">
+            </li>
+            <li>
+                <label for="password">Contraseña:</label>
+                <input type="password" placeholder="Contraseña" id="password" name="Contraseña">
+            </li>
+            <li>
+                <label for="mail">Correo electrónico:</label>
+                <input type="email" placeholder="Correo electrónico" id="mail" name="Correo electrónico">
+            </li>
+        </ul>
+        <label for="estimation">Estimacion:</label>
+        <select name="estimation" id="estimation">
+            <option value="1">XS</option>
+            <option value="2">S</option>
+            <option value="3">M</option>
+            <option value="4">L</option>
+            <option value="5">XL</option>
+        </select>
+        <li>
+            <label for="contacto">Contacto:</label>
+            <input name="payment" type="checkbox" value="email"> Correo electrónico</input>
+            <input name="payment" type="checkbox" value="sms"> SMS</input>
+            <input name="payment" type="checkbox" value="phone"> Teléfono</input>
+        </li>
+        <button type="submit">Enviar</button>
+        <button type="reset">Borrar</button>
+    </nav>
+</body>
+</html>
