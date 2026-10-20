@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicar css</title>
+    <style type="text/css">
+        div{
+            width: 200px;
+            height: 50px;
+            margin: 10px;
+        }
+
+        .head{
+            border: 5px solid #0fb425b6;
+        }
+        </style>
+        <link rel="stylesheet" href="./styles.css">
+        <style type="text/css">
+            @import url(http://127.0.0.1:5500/css/apply-css/external.css);
+        </style>
+</head>
+<body>
+    <nav><a href="../index.html">Volver atras</a></nav>
+    <div class="head">Styles in "head" section</div>
+    <div style="width: 200px; height: 50px; margin: 10px; border: 5px dashed red;">Inline styles</div>
+    <div class="stylesheet">style on internal sheet</div>
+    <div class="externalsheet">style on external sheet</div>
+</body>
+</html>
