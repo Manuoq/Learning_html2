@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font optical-sizing: auto;
+    font-style: normal;
+    font-weight: normal;
+}
+body{
+    background-color: #F8fafc;
+}
+
+section{
+    background-color: #f0f0f0;
+    margin: 32px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(47, 44, 68, 0.1);
+    padding: 8px;
+}
+
+h1{
+    font-size: 32px;
+    color: #1b2736;
+}
+
+h2{
+    font-size: 24px;
+}       
+
+h3{
+    font-size: 18px;
+}   
+
+/*====================================================================================================================================*/
+
+.ex-1, .ex2 {
+    background-color: aqua;
+    height: 40px;
+    width: 60px;
+    margin-bottom: 8px;
+}
+
+.ex2 ul li a {
+    color: orange;
+    text-decoration: none;
+}
+
+.ex3 > ul > li> a{
+    color: red;
+    text-decoration: none;
+}
+
