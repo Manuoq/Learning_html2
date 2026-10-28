@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addTask(){
+            let input = document.getElementById("inputBox")
+            let liVar = document.createElement("li")
+            liVar.innerHTML = input.value;
+            let buttonVar = document.createElement("button")
+            buttonVar.innerText = "Borrar"
+            buttonVar.addEventListener("click", (btn) => {
+                console.log(btn.target.parentNode.remove());
+            })
+            liVar.appendChild(buttonVar);
+            document.getElementById("task").appendChild()
+            input.value = "";
+
+        }
+    </script>
+</head>
+<body>
+    <a href="../index.html">Volver atras</a>
+
+    <input name="task" type ="text" id="inputBox">
+    <button onclick="addTask()"> Subir tarea</button>
+    <ul id="Task">
+
+    </ul>
+</body>
+</html>

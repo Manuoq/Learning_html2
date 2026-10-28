@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuchadores de eventos</title>
+    <script>
+        function addEventHandler(btn){
+            console.log("Test");
+            let buttons = document.getElementsByClassName("enableBtn")
+           for (let element of buttons){
+            element.addEventListener("click", (element) =>{
+                console.log("Boton pulsado", element.textContent)
+            })
+           }
+           btn.remove()
+        }
+
+    (btn) => { btn.target.textContent }
+    </script>
+</head>
+<body>
+    <nav><a href="../index.html">Volver a enlaces</a>
+    <nav><a href="../../exercise/event-listener/index.html">Ir al ejercicio</a>    
+        <button id="addFunc" onclick="addEventHandler(this)">Activar funcionamiento</button>
+        <button class="enableBtn">Funcionara...1</button>
+        <button class="enableBtn">Funcionara...2</button>
+        <button class="enableBtn">Funcionara...3</button>
+        <button class="enableBtn">Funcionara...4</button>
+        <button class="enableBtn">Funcionara...5</button>
+</body>
+</html>
