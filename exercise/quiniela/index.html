@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiniela</title>
     <style>
-
         body {
             font-family: Arial, sans-serif;
             margin: 20px; 
@@ -13,7 +12,7 @@
 
         .logo-loterias img, .logo-quiniela img {
             width: 230px; 
-            max-width: 100%; 
+            max-width: 85%; 
             height: auto;
         }
 
@@ -79,11 +78,162 @@
         .flotar-der {
             float: right;
         }
+
+        /* --- CUERPO QUINIELA --- */
+        #cuerpo-quiniela {
+            margin-top: 10px;
+            width: 100%;
+            clear: both;
+        }
+
+        /* Ajuste de columnas para dejar un hueco entre pronósticos y combinaciones */
+        .columna-equipos {
+            float: left;
+            width: 24%;
+        }
+
+        .columna-pronosticos {
+            float: left;
+            width: 63%;
+        }
+
+        .columna-combinaciones {
+            float: right; /* Flota a la derecha para dejar el espacio del 2% en el medio */
+            width: 11%;
+        }
+
+        /* Configuraciones para las tres tablas independientes */
+        .tabla-equipos, .tabla-pronosticos, .tabla-combinaciones {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed; /* OBLIGA a que las celdas no se deformen y las líneas cuadren */
+        }
+
+        /* Alturas fijas para mantener el alineamiento horizontal */
+        .tabla-equipos tr, .tabla-pronosticos tr, .tabla-combinaciones tr {
+            height: 22px; 
+        }
+
+        .espacio-cabecera {
+            height: 25px; 
+            border: none;
+        }
+
+        .nombre-partido {
+            color: #2986CC; 
+            text-align: left;
+            font-size: 14px;
+            white-space: nowrap; /* Evita que los textos largos salten de línea */
+            overflow: hidden;
+        }
+
+        .titulo-rojo {
+            color: #E06666; 
+            border: 1.5px solid #E06666;
+            font-size: 14px;
+            padding: 2px 0;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .casilla, .casilla-combinacion {
+            color: #E06666;
+            border: 1px solid #E06666;
+            text-align: center;
+            font-size: 13px;
+        }
+        
+        /* Líneas separadoras rojas */
+        .separador-arriba td {
+            border-top: 2px solid #E06666;
+        }
+        .separador-abajo td {
+            border-bottom: 2px solid #E06666;
+        }
+
+        /* --- PIE DE LA QUINIELA (Reutilizando las 3 columnas para centrar) --- */
+        #pie-quiniela {
+            width: 100%;
+            margin-top: 5px;
+            clear: both; 
+        }
+
+        .fila-pie {
+            padding-top: 10px;
+            clear: both;
+        }
+
+        .centrar-contenido {
+            text-align: center;
+        }
+
+        /* Elementos Fila 1 (Bien/Mal y Pleno) */
+        .bien-mal {
+            float: right; /* Lo pegamos a la derecha de la columna de equipos */
+            padding-right: 15px;
+            font-size: 11px;
+            color: #2986CC; 
+            line-height: 1.4;
+            text-align: left;
+        }
+        
+        .bien-mal span {
+            border: 1px solid #2986CC;
+            padding: 0 2px;
+            margin-left: 5px;
+        }
+
+        .pleno-titulo {
+            display: inline-block;
+            color: #E06666; 
+            font-size: 14px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .equipo-pleno {
+            display: inline-block;
+            color: #2986CC;
+            font-size: 14px;
+            margin: 0 10px;
+        }
+
+        .casilla-pleno {
+            color: #E06666;
+            border: 1px solid #E06666;
+            padding: 1px 4px;
+            margin-left: 2px;
+            font-size: 13px;
+        }
+
+        /* Elementos Fila 2 (Bloques) */
+        .bloques-texto {
+            float: right;
+            color: #2986CC;
+            font-size: 14px;
+            padding-right: 15px;
+            margin-top: 4px;
+        }
+
+        .bloque-num {
+            display: inline-block; 
+            background-color: #E06666; 
+            color: white; 
+            width: 25px;
+            text-align: center;
+            margin: 0 2.5%; /* Separación elástica para que encaje bajo la tabla */
+            font-weight: bold;
+        }
+
+        .dobles-texto {
+            color: #E06666;
+            font-size: 11px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div id="cabecera-quiniela">
-
         <div class="logo-loterias">
             <img src="../assets/Logo_de_Loterías_y_Apuestas_del_Estado.jpg" alt="Loterías y Apuestas del Estado">
         </div>
@@ -113,7 +263,161 @@
         </div>
 
         <div class="limpiar-flotados"></div>
+    </div> 
 
+    <!-- CUERPO DE LA QUINIELA -->
+    <div id="cuerpo-quiniela">
+        
+        <!-- 1. Columna Equipos (24%) -->
+        <div class="columna-equipos">
+            <table class="tabla-equipos">
+                <tr><th class="espacio-cabecera">&nbsp;</th></tr>
+                <tr class="separador-arriba"><td class="nombre-partido">DEPORTIVO-R. SOCIEDAD . . . . 1</td></tr>
+                <tr><td class="nombre-partido">RAYO VALLECANO-VALENCIA . . . 2</td></tr>
+                <tr><td class="nombre-partido">ATHLETIC CLUB-BARCELONA . . . 3</td></tr>
+                <tr><td class="nombre-partido">SPORTING-R. MADRID. . . . . . 4</td></tr>
+                <tr class="separador-arriba"><td class="nombre-partido">BETIS-VILLARREAL . . . . . . . 5</td></tr>
+                <tr><td class="nombre-partido">ESPANYOL-GETAFE . . . . . . . 6</td></tr>
+                <tr><td class="nombre-partido">LEVANTE-CELTA . . . . . . . . 7</td></tr>
+                <tr><td class="nombre-partido">ALMERÍA-LEGANÉS . . . . . . . 8</td></tr>
+                <tr class="separador-arriba"><td class="nombre-partido">MIRANDÉS-ZARAGOZA . . . . . . 9</td></tr>
+                <tr><td class="nombre-partido">LLAGOSTERA-OSASUNA. . . . . 10</td></tr>
+                <tr><td class="nombre-partido">OVIEDO-LUGO . . . . . . . . . 11</td></tr>
+                <tr class="separador-arriba"><td class="nombre-partido">GIMNÀSTIC-ALBACETE . . . . . 12</td></tr>
+                <tr><td class="nombre-partido">ALCORCÓN-MALLORCA . . . . . 13</td></tr>
+                <tr class="separador-abajo"><td class="nombre-partido">CÓRDOBA-VALLADOLID . . . . . 14</td></tr>
+            </table>
+        </div>
+
+        <!-- 2. Columna Pronósticos (63%) -->
+        <div class="columna-pronosticos">
+            <table class="tabla-pronosticos">
+                <tr>
+                    <th colspan="24" class="titulo-rojo">P R O N Ó S T I C O S</th>
+                </tr>
+                <tr class="separador-arriba">
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr>
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr>
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr>
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr class="separador-arriba">
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr>
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr>
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr>
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr class="separador-arriba">
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr>
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr>
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr class="separador-arriba">
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr>
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+                <tr class="separador-abajo">
+                    <td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td><td class="casilla">1</td><td class="casilla">X</td><td class="casilla">2</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 3. Columna Combinaciones (11%) -->
+        <div class="columna-combinaciones">
+            <table class="tabla-combinaciones">
+                <tr>
+                    <th class="titulo-rojo">COMBINACIONES</th>
+                </tr>
+                <tr class="separador-arriba"><td class="casilla-combinacion">1</td></tr>
+                <tr><td class="casilla-combinacion">2</td></tr>
+                <tr><td class="casilla-combinacion">3</td></tr>
+                <tr><td class="casilla-combinacion">4</td></tr>
+                <tr class="separador-arriba"><td class="casilla-combinacion">5</td></tr>
+                <tr><td class="casilla-combinacion">6</td></tr>
+                <tr><td class="casilla-combinacion">7</td></tr>
+                <tr><td class="casilla-combinacion">8</td></tr>
+                <tr class="separador-arriba"><td class="casilla-combinacion">9</td></tr>
+                <tr><td class="casilla-combinacion">10</td></tr>
+                <tr><td class="casilla-combinacion">11</td></tr>
+                <tr class="separador-arriba"><td class="casilla-combinacion">12</td></tr>
+                <tr><td class="casilla-combinacion">13</td></tr>
+                <tr class="separador-abajo"><td class="casilla-combinacion">14</td></tr>
+            </table>
+        </div>
+
+        <div class="limpiar-flotados"></div>
     </div>
+
+    <!-- PIE DEL BOLETO (Dentro del body, respetando la estructura 24% - 63% - 11%) -->
+    <div id="pie-quiniela">
+        
+        <!-- Fila 1: Pleno al 15 -->
+        <div class="fila-pie">
+            <div class="columna-equipos">
+                <div class="bien-mal">
+                    <div>BIEN <span>X</span></div>
+                    <div>MAL <span>X</span></div>
+                </div>
+            </div>
+            
+            <div class="columna-pronosticos centrar-contenido">
+                <div class="pleno-titulo">PLENO AL 15</div>
+                <div class="equipo-pleno">
+                    <span>AT. MADRID . . . . .</span>
+                    <span class="casilla-pleno">0</span><span class="casilla-pleno">1</span><span class="casilla-pleno">2</span><span class="casilla-pleno">M</span>
+                </div>
+                <div class="equipo-pleno">
+                    <span>LAS PALMAS . . . .</span>
+                    <span class="casilla-pleno">0</span><span class="casilla-pleno">1</span><span class="casilla-pleno">2</span><span class="casilla-pleno">M</span>
+                </div>
+            </div>
+            
+            <div class="columna-combinaciones"></div>
+            
+            <div class="limpiar-flotados"></div>
+        </div>
+
+        <!-- Fila 2: Tira roja de bloques -->
+        <div class="fila-pie">
+            <div class="columna-equipos">
+                <div class="bloques-texto">BLOQUES &rarr;</div>
+            </div>
+            
+            <div class="columna-pronosticos centrar-contenido">
+                <div class="bloque-num">1</div>
+                <div class="bloque-num">2</div>
+                <div class="bloque-num">3</div>
+                <div class="bloque-num">4</div>
+                <div class="bloque-num">5</div>
+                <div class="bloque-num">6</div>
+                <div class="bloque-num">7</div>
+                <div class="bloque-num">8</div>
+            </div>
+
+            <div class="columna-combinaciones">
+                <div class="dobles-texto">&uarr;<br>DOBLES</div>
+            </div>
+            
+            <div class="limpiar-flotados"></div>
+        </div>
+    </div> 
 </body>
 </html>
