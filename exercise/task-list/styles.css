@@ -1,0 +1,109 @@
+/* Variables */
+:root{
+    --fondo-web: rgb(238, 234, 182);
+    --fondo-tarjeta: beige;
+
+    --border: 1px solid rgb(233, 218, 218);
+    --border-soft: 1px solid rgb(233, 218, 218);
+}
+
+/* Reset de estilos */
+
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+/* Fondo web */
+body {
+    background-color: var(--fondo-web);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px;
+    min-height: 60px 20px;
+
+}
+
+/* Estilos de la tarjeta */
+
+.container{
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--fondo-tarjeta);
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 32px 24px;
+}
+
+/*Cabecera de la tarjeta*/
+
+header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+/*Incluir tareas*/
+
+.input-container{
+    display: flex;
+    align-items: center;
+    background-color: var(--fondo-tarjeta);
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 6px 6px 6px 14px;
+    margin-bottom: 24px;
+}
+
+.input-container input{
+   flex: 1;
+   border: none;
+   background-color: transparent;
+   outline: none;
+}
+
+.input-container button{
+    background-color: var(--fondo-tarjeta);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+.input-container button:hover{
+    background-color: #f0f0f0;
+}
+
+.bto-submit{
+    background-color: var(--fondo-tarjeta);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+/* Lista de tareas */
+
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--fondo-tarjeta);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 12px 14px;
+    
+}

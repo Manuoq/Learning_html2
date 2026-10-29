@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span> * </span>
+            <h1>Lista de tareas</h1>
+        </header>
+        <div class="input-container">
+            <input type="text" placeholder="Agregar tarea">
+            <button class="bto-submit">
+                <span></span>Agregar
+            </button>
+        </div>
+        <ul class="task-list">
+            <li class="task-item">
+                <div class="task-container">
+                    <button class="check-button">✓</button>
+                    <span class="task-text">Tareas pendientes</span>
+                    </div>
+                    <button class="delete-button">🗑</button>                
+            </li>
+        </ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
